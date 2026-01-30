@@ -246,7 +246,17 @@ class GRP(nn.Module):
                 raise ValueError("tokenizer and text_model must be provided when using T5 encoding")
             # TODO:    
             ## Provide the logic converting text goal to T5 embedding tensor
-            pass
+            with _torch.no_grad():
+                input_ids = tokenizer(goal, return_tensores="pt").input_ids.to(self._cfg.device)
+
+                outputs = text_model.encoder(input_ids=input_ids)
+                last_hidden_state = outputs.last_hidden_state
+            
+            result = _torch.zeros((1, self._cfg.max_block_size, self._cfg.n_embd), d_type=_torch.float32, device=self._cfg.device)
+            seq_length = last_hidden_state.shape[1]
+            limit = min(seq_length, self._cfg.max_block_size)
+            result[:, :limit, :] = last_hidden_state[:, :limit, :]
+            return result
         else:
             pad = " " * self._cfg.max_block_size
             goal_ = goal[:self._cfg.max_block_size] + pad[len(goal):self._cfg.max_block_size]

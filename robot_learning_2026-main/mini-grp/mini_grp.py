@@ -63,7 +63,14 @@ def my_main(cfg: DictConfig):
     if cfg.dataset.encode_with_t5: ## Load T5 model
         # TODO:    
         ## Load the T5 model and tokenizer
-        pass
+        from transformers import T5Tokenizer, T5ForConditionalGeneration
+
+        t5_version = getattr(cfg.dataset, "t5_version", "t5-small")
+        tokenizer = T5Tokenizer.from_pretrained(t5_version)
+        text_model = T5ForConditionalGeneration.from_pretrained(t5_version)
+
+        text_model.to(cfg.device)
+        text_model.eval()
 
     from mini_shuffel_buffer import CircularBuffer, get_dataset_portion
 
