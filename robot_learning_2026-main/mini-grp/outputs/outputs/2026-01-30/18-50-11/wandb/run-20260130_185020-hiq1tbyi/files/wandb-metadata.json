@@ -1,0 +1,42 @@
+{
+  "os":  "Linux-6.6.105+-x86_64-with-glibc2.35",
+  "python":  "CPython 3.11.13",
+  "startedAt":  "2026-01-30T18:50:20.456319Z",
+  "args":  [
+    "simEval=[]"
+  ],
+  "program":  "/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/mini_grp.py",
+  "codePath":  "robot_learning_2026-main/mini-grp/mini_grp.py",
+  "git":  {
+    "remote":  "https://github.com/Madsam999/IFT6163_HW1.git",
+    "commit":  "aa0e879db42fd0073efaaff602cf0b07ff4a4771"
+  },
+  "email":  "samuelfournier06@gmail.com",
+  "root":  "/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/outputs/2026-01-30/18-50-11",
+  "host":  "6ff7615c765e",
+  "executable":  "/usr/bin/python3",
+  "cpu_count":  4,
+  "cpu_count_logical":  8,
+  "gpu":  "Tesla T4",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "259748564992",
+      "used":  "54844522496"
+    }
+  },
+  "memory":  {
+    "total":  "54750429184"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "Tesla T4",
+      "memoryTotal":  "16106127360",
+      "cudaCores":  2560,
+      "architecture":  "Turing",
+      "uuid":  "GPU-c362d103-4a1a-9f8d-b61d-63b568b5a0a3"
+    }
+  ],
+  "cudaVersion":  "12.4",
+  "writerId":  "chnmour1sifvl5f2wfbptqbmgaa7fyc4"
+}

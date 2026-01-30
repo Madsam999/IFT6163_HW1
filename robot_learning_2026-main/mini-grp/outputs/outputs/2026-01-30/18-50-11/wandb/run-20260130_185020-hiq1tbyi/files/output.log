@@ -1,0 +1,119 @@
+[34m[1mwandb[0m: [33mWARNING[0m No relevant files were detected in the specified directory. No code will be logged to your run.
+[2026-01-30 18:50:28,646][numexpr.utils][INFO] - NumExpr defaulting to 8 threads.
+/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/mini_shuffel_buffer.py:545: UserWarning:
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path="./conf", config_name="64pix-pose")
+Using Transformer model
+/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/sim_eval.py:262: UserWarning:
+The version_base parameter is not specified.
+Please specify a compatability version level, or None.
+Will assume defaults for version 1.1
+  @hydra.main(config_path="./conf", config_name="64pix-pose")
+vocab_size: 90
+[2026-01-30 18:50:34,964][datasets][INFO] - TensorFlow version 2.15.0 available.
+[2026-01-30 18:50:34,966][datasets][INFO] - JAX version 0.5.2 available.
+README.md: 100% 584/584 [00:00<00:00, 2.13MB/s]
+data/train-00000-of-00004.parquet: 100% 62.7M/62.7M [00:02<00:00, 23.0MB/s]
+data/train-00001-of-00004.parquet: 100% 58.2M/58.2M [00:01<00:00, 54.7MB/s]
+data/train-00002-of-00004.parquet: 100% 60.0M/60.0M [00:01<00:00, 42.3MB/s]
+data/train-00003-of-00004.parquet: 100% 61.2M/61.2M [00:01<00:00, 54.7MB/s]
+Generating train split: 100% 28656/28656 [00:05<00:00, 5429.89 examples/s]
+Time to load huggingface dataset: 18.09689497947693
+Time to load huggingface data and copy:  756.9277813434601
+Loaded dataset with size: 28656
+0.829063 M parameters
+Memory used by the model: 1241.498624 MB
+Memory used by the dataset cBuffer: 0.445652 MB
+Memory used by the dataset cBuffer image: 0.000152 MB
+Memory used by the dataset cBuffer goal image: 0.000152 MB
+Memory used by the dataset cBuffer: t5_language_embedding 1.6e-05 MB
+num <queue.Queue object at 0x7a7db4b56950>
+step 0: train loss 1.0496, val loss 1.0548, memory 1250.02 MB
+Model saved to ./miniGRP.pth
+step 100: train loss 0.9444, val loss 0.9965, memory 1290.40 MB
+step 200: train loss 0.9575, val loss 0.9749, memory 1290.40 MB
+step 300: train loss 0.9039, val loss 0.9139, memory 1290.40 MB
+step 400: train loss 0.8748, val loss 0.8365, memory 1290.40 MB
+step 500: train loss 0.7693, val loss 0.7773, memory 1290.40 MB
+step 600: train loss 0.7110, val loss 0.7017, memory 1290.40 MB
+step 700: train loss 0.6577, val loss 0.6756, memory 1290.40 MB
+step 800: train loss 0.5962, val loss 0.5924, memory 1290.40 MB
+step 900: train loss 0.5688, val loss 0.5571, memory 1290.40 MB
+step 1000: train loss 0.5166, val loss 0.5190, memory 1290.40 MB
+Model saved to ./miniGRP.pth
+step 1100: train loss 0.5027, val loss 0.5011, memory 1290.40 MB
+step 1200: train loss 0.4718, val loss 0.4653, memory 1290.40 MB
+step 1300: train loss 0.4424, val loss 0.4386, memory 1290.40 MB
+step 1400: train loss 0.4082, val loss 0.4145, memory 1290.40 MB
+step 1500: train loss 0.3798, val loss 0.3833, memory 1290.40 MB
+step 1600: train loss 0.3574, val loss 0.3738, memory 1290.40 MB
+step 1700: train loss 0.3599, val loss 0.3455, memory 1290.40 MB
+step 1800: train loss 0.3175, val loss 0.3246, memory 1290.40 MB
+step 1900: train loss 0.3298, val loss 0.3210, memory 1290.40 MB
+step 2000: train loss 0.3240, val loss 0.3060, memory 1290.40 MB
+Model saved to ./miniGRP.pth
+step 2100: train loss 0.2907, val loss 0.3074, memory 1290.40 MB
+step 2200: train loss 0.2806, val loss 0.2704, memory 1290.40 MB
+step 2300: train loss 0.2778, val loss 0.2849, memory 1290.40 MB
+step 2400: train loss 0.2909, val loss 0.2776, memory 1290.40 MB
+step 2500: train loss 0.2506, val loss 0.2636, memory 1290.40 MB
+step 2600: train loss 0.2571, val loss 0.2455, memory 1290.40 MB
+step 2700: train loss 0.2405, val loss 0.2432, memory 1290.40 MB
+step 2800: train loss 0.2273, val loss 0.2197, memory 1290.40 MB
+step 2900: train loss 0.2315, val loss 0.2177, memory 1290.40 MB
+step 3000: train loss 0.2093, val loss 0.2143, memory 1290.40 MB
+Model saved to ./miniGRP.pth
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/hydra/core/utils.py", line 186, in run_job
+    ret.return_value = task_function(task_cfg)
+                       ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/mini_grp.py", line 159, in my_main
+    logits, loss = model(xb, xg, xgi, yb, pose=xp)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1736, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/nn/modules/module.py", line 1747, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/grp_model.py", line 177, in forward
+    pos_emb = calc_positional_embeddings(seq_len, self.n_embd)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/grp_model.py", line 23, in calc_positional_embeddings
+    result[i][j] = np.sin(i / (10000 ** (j / d))) if j % 2 == 0 else np.cos(i / (10000 ** ((j - 1) / d)))
+    ~~~~~~~~~^^^
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/content/IFT6163_HW1/robot_learning_2026-main/mini-grp/mini_grp.py", line 189, in <module>
+    results = my_main()
+              ^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/hydra/main.py", line 94, in decorated_main
+    _run_hydra(
+  File "/usr/local/lib/python3.11/dist-packages/hydra/_internal/utils.py", line 394, in _run_hydra
+    _run_app(
+  File "/usr/local/lib/python3.11/dist-packages/hydra/_internal/utils.py", line 457, in _run_app
+    run_and_report(
+  File "/usr/local/lib/python3.11/dist-packages/hydra/_internal/utils.py", line 220, in run_and_report
+    return func()
+           ^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/hydra/_internal/utils.py", line 458, in <lambda>
+    lambda: hydra.run(
+            ^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/hydra/_internal/hydra.py", line 119, in run
+    ret = run_job(
+          ^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/hydra/core/utils.py", line 200, in run_job
+    HydraConfig.instance().cfg = orig_hydra_cfg
+    ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/hydra/core/hydra_config.py", line 41, in instance
+    return Singleton.instance(HydraConfig, *args, **kwargs)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/hydra/core/singleton.py", line 17, in instance
+    return cls(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
