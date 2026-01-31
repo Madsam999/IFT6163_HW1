@@ -307,8 +307,9 @@ class CircularBuffer:
         ## Make goal embeddings of a fixed length and fill in the earlier chunks with the true goal data
         if self._cfg.dataset.encode_with_t5:
             if language_instruction is not None:
-                ##TODO: This does not work if the original language instrictuion size is less than the new max_block_size
-                self._dataset_tmp["t5_language_embedding"][self._index] = torch.tensor(language_instruction[:self._cfg.max_block_size], dtype=torch.float, device=self._cfg.device)
+                ##TODONE: This does not work if the original language instrictuion size is less than the new max_block_size
+                emb = torch.tensor(language_instruction[:self._cfg.max_block_size], dtype=torch.float, device=self._cfg.device)
+                self._dataset_tmp["t5_language_embedding"][self._index, :emb.shape[0], :] = emb
             else:
                 with torch.profiler.record_function("Process goal text with T5"):
                     goal_ = self._model.process_text_embedding_for_buffer(goal, tokenizer=self._tokenizer, text_model=self._text_model)
@@ -333,9 +334,12 @@ class CircularBuffer:
         from torchvision.transforms import v2 # Recommend v2 for new code
         from einops import rearrange
         if self._cfg.policy.use_image_augmentations:
-            # TODO:
+            # TODONE:
             ## Add image Augmentations to improve performance
-            pass
+            transform_crop_scale = v2.Compose([
+                v2.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.1),
+                v2.ToDtype(torch.float32) # Convert to [0,1]
+            ])
         else:
             transform_crop_scale = v2.Compose([
                 v2.ToDtype(torch.float32) # Convert to float [0,1] after crop/resize
@@ -363,7 +367,7 @@ class CircularBuffer:
         x_goal_img = self._model.normalize_state(transform_crop_scale(data["goal_img"][ix].to(torch.float))) ## [B, C, H,  W]
         x_goal_img = x_goal_img # Convert to [B, H, W, C] format from torchvision.
     
-        # TODO: 
+        # TODONE: 
         ## Provide the block masking logic for the attention head
         y = self._model.encode_action(data["action"][ix])
         if cfg.policy.action_stacking > 1:

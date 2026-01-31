@@ -61,7 +61,7 @@ def my_main(cfg: DictConfig):
     tokenizer = None
     text_model = None
     if cfg.dataset.encode_with_t5: ## Load T5 model
-        # TODO:    
+        # TODONE:    
         ## Load the T5 model and tokenizer
         from transformers import T5Tokenizer, T5ForConditionalGeneration
 

@@ -244,7 +244,7 @@ class GRP(nn.Module):
         if self._cfg.dataset.encode_with_t5:
             if tokenizer is None or text_model is None:
                 raise ValueError("tokenizer and text_model must be provided when using T5 encoding")
-            # TODO:    
+            # TODONE:    
             ## Provide the logic converting text goal to T5 embedding tensor
             with _torch.no_grad():
                 input_ids = tokenizer(goal, return_tensores="pt").input_ids.to(self._cfg.device)
